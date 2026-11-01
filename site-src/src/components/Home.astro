@@ -33,6 +33,7 @@ const clientData = {
 };
 ---
 <Base track={track}>
+  <main>
   <div class="ed-wrap" id="top">
     <div class="ed" data-editor data-sel="root">
       <header class="ed-menu">
@@ -149,21 +150,21 @@ const clientData = {
           <div data-pane-insp="root">
             <div class="insp-head"><span class="check"><Icon name="check" size={10} /></span><span class="field">{site.name}</span></div>
             <div class="insp-meta"><span>Tag <b>Researcher</b></span><span>Layer {allTracks.map((k) => <b class={`t-${k}`}>{site.tracks[k].focus}</b>)}</span></div>
-            <div class="comp" aria-hidden="true"><h3><Icon name="closed" size={10} />Transform</h3></div>
+            <div class="comp" aria-hidden="true"><h2><Icon name="closed" size={10} />Transform</h2></div>
             <div class="comp">
-              <h3><Icon name="open" size={10} />Profile</h3>
+              <h2><Icon name="open" size={10} />Profile</h2>
               <div class="body">
                 {site.profile.map((f) => <div class="row"><span>{f.k}</span><span class="field">{f.v}</span></div>)}
               </div>
             </div>
             <div class="comp">
-              <h3><Icon name="open" size={10} />Top skills</h3>
+              <h2><Icon name="open" size={10} />Top skills</h2>
               <div class="body">
                 {allTracks.map((k) => <div class={`chips t-${k}`}>{site.tracks[k].topSkills.map((s) => <span class="chip">{s}</span>)}</div>)}
               </div>
             </div>
             <div class="comp">
-              <h3><Icon name="open" size={10} />Links</h3>
+              <h2><Icon name="open" size={10} />Links</h2>
               <div class="body" style="flex-direction:row;flex-wrap:wrap;gap:4px 14px">
                 <a href={site.links.linkedin}>LinkedIn</a>
                 <a href={site.links.scholar}>Google Scholar</a>
@@ -175,28 +176,28 @@ const clientData = {
             <div data-pane-insp={id} hidden>
               <div class="insp-head"><span class="check"><Icon name="check" size={10} /></span><span class="field">{P[id].title}</span></div>
               <div class="insp-meta"><span>Tag <b>Project</b></span><span>Layer {allTracks.map((k) => <b class={`t-${k}`}>{site.tracks[k].focus}</b>)}</span></div>
-              <div class="comp" aria-hidden="true"><h3><Icon name="closed" size={10} />Transform</h3></div>
+              <div class="comp" aria-hidden="true"><h2><Icon name="closed" size={10} />Transform</h2></div>
               <div class="comp">
-                <h3><Icon name="open" size={10} />Project</h3>
+                <h2><Icon name="open" size={10} />Project</h2>
                 <div class="body">
                   <span style="color:var(--muted)">{P[id].line}</span>
                   <div class="row"><span>Venue</span><span class="field">{P[id].venue}</span></div>
                 </div>
               </div>
-              <div class="comp"><h3><Icon name="open" size={10} />Result</h3><p class="result">{P[id].result}</p></div>
+              <div class="comp"><h2><Icon name="open" size={10} />Result</h2><p class="result">{P[id].result}</p></div>
               <div class="comp">
-                <h3><Icon name="open" size={10} />Stack</h3>
+                <h2><Icon name="open" size={10} />Stack</h2>
                 <div class="body"><div class="chips">{P[id].tags.map((s) => <span class="chip">{s}</span>)}</div></div>
               </div>
               {(P[id].video || P[id].paper) && (
                 <div class="insp-actions">
-                  {P[id].video && <a class="btn-sq" href={yt(P[id].video)}>Watch on YouTube</a>}
-                  {P[id].paper && <a class="btn-sq" href={P[id].paper}>Read the paper</a>}
+                  {P[id].video && <a class="btn-sq" href={yt(P[id].video)} aria-label={`Watch on YouTube: ${P[id].title}`}>Watch on YouTube</a>}
+                  {P[id].paper && <a class="btn-sq" href={P[id].paper} aria-label={`Read the paper: ${P[id].title}`}>Read the paper</a>}
                 </div>
               )}
             </div>
           ))}
-          <a class="btn-sq wide" href={`mailto:${site.email}`}>Add to your team</a>
+          <a class="btn-sq wide" href={`mailto:${site.email}`}>Email me about a role</a>
         </aside>
       </div>
 
@@ -254,7 +255,6 @@ const clientData = {
     </div>
   </div>
 
-  <main>
     <section id="work" class="sec work">
       <div class="work-head" data-reveal>
         <h2>Things I've built</h2>
@@ -278,8 +278,8 @@ const clientData = {
               <p class="stack">{P[id].venue}. {P[id].tags.join(', ')}.</p>
               {(P[id].video || P[id].paper) && (
                 <p class="links">
-                  {P[id].video && <a href={yt(P[id].video)}>Watch the demo</a>}
-                  {P[id].paper && <a href={P[id].paper}>Read the paper</a>}
+                  {P[id].video && <a href={yt(P[id].video)} aria-label={`Watch the demo: ${P[id].title}`}>Watch the demo</a>}
+                  {P[id].paper && <a href={P[id].paper} aria-label={`Read the paper: ${P[id].title}`}>Read the paper</a>}
                 </p>
               )}
             </div>
@@ -353,7 +353,7 @@ const clientData = {
             </span>
             <span class="t">{c.title}</span>
             <span class="m">{c.issuer}, {c.date}</span>
-            <a href={c.url}>View credential</a>
+            <a href={c.url} aria-label={`View credential: ${c.title}`}>View credential</a>
           </div>
         ))}
       </div>
@@ -371,24 +371,16 @@ const clientData = {
     </section>
   </main>
 
-  <section id="connect" class="contact">
+  <footer id="connect" class="contact">
     <h2 data-reveal>Open to applied AI and spatial computing roles.</h2>
-    <a class="email" href={`mailto:${site.email}`} data-reveal><span>{site.email.split('@')[0]}@</span><span>{site.email.split('@')[1]}</span></a>
     <ul class="social" aria-label="Elsewhere">
       <li><a href={site.links.linkedin}>LinkedIn</a></li>
       <li><a href={site.links.scholar}>Google Scholar</a></li>
       <li><a href={site.links.github}>GitHub</a></li>
       <li><a href={site.links.youtube}>YouTube demos</a></li>
     </ul>
-  </section>
-
-  <footer class="page-foot">
-    <div class="foot-cols">
-      <nav aria-label="Sections"><p>Sections</p>{sections.map(([h, l]) => <a href={h}>{l}</a>)}</nav>
-      <nav aria-label="Views"><p>Hiring for</p>{tracks.map((k) => <a href={site.tracks[k].path}>{site.tracks[k].label}</a>)}</nav>
-      <p class="legal">© 2026 Aditya Raikwar</p>
-    </div>
-    <p class="wordmark" aria-hidden="true">{site.name}</p>
+    <a class="email" href={`mailto:${site.email}`} data-reveal><span>{site.email.split('@')[0]}@</span><span>{site.email.split('@')[1]}</span></a>
+    <div class="contact-end"><span>© 2026 · <a href="/privacy/">Privacy</a></span><a href="#top">Back to top</a></div>
   </footer>
 
   <script type="application/json" id="site-data" set:html={JSON.stringify(clientData)} />

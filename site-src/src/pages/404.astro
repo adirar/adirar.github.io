@@ -19,6 +19,7 @@ import '../styles/global.css';
   <body data-track="both">
     <main class="ed-wrap" style="max-width:720px;margin-top:12vh">
       <div class="ed">
+        <div data-ui>
         <div class="pane-tabs"><span class="pane-tab static">Console</span></div>
         <ul class="console" style="min-height:0">
           <li>
@@ -27,12 +28,13 @@ import '../styles/global.css';
             <span>This page doesn't exist. The address may be mistyped, or the page has moved.</span>
           </li>
         </ul>
+        </div>
         <div style="padding:24px;display:flex;flex-direction:column;gap:18px">
           <h1 style="margin:0;font-weight:400;font-size:clamp(28px,4vw,40px);line-height:1.1;letter-spacing:-0.02em">Page not found</h1>
           <div class="cta">
             <a class="pill solid" href="/">Go to the portfolio</a>
-            <a class="pill line" href="/ai/">Applied AI / ML view</a>
-            <a class="pill line" href="/xr/">Spatial computing / XR view</a>
+            <a class="tlink" href="/ai/">Applied AI / ML view</a>
+            <a class="tlink" href="/xr/">Spatial computing / XR view</a>
           </div>
         </div>
       </div>

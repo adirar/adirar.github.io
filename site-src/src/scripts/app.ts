@@ -86,7 +86,18 @@ function renderGame(autoplay: boolean) {
 function setView(view: 'scene' | 'game', autoplay = false) {
   const isGame = view === 'game';
   $$('[data-view]').forEach((t) => t.setAttribute('aria-selected', String(t.dataset.view === view)));
-  $$('[data-pane-scene]').forEach((el) => (el.hidden = isGame || el.dataset.paneScene !== sel));
+  $$('[data-pane-scene]').forEach((el) => {
+    const show = !isGame && el.dataset.paneScene === sel;
+    if (el.dataset.paneScene !== 'root') {
+      el.hidden = !show;
+      return;
+    }
+    // The hero holds the page's h1: hide it visually but keep the title for screen readers,
+    // and take its buttons and the floor out of the tab order while it is out of view
+    el.hidden = false;
+    el.classList.toggle('sr-only', !show);
+    el.querySelectorAll<HTMLElement>('.cta, .floor').forEach((c) => (c.inert = !show));
+  });
   game.hidden = !isGame;
   if (isGame) renderGame(autoplay);
   else {

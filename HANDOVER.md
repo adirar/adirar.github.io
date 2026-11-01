@@ -79,7 +79,10 @@ ffmpeg -ss 00:00:12 -t 6 -i source.mp4 -an -vf "scale=1280:-2,fps=30" -c:v libx2
 - [ ] Photos of his lab devices (AR headset, VR headset, eye tracker, EEG cap, phone) and the project each was used in.
   The Lab kit shows generic outline icons until then.
 - [ ] Confirm which signals the CNN-GRU cognitive-load model used. The site says gaze tracking and behavioral logs.
-  Also confirm whether EEG was used in a project.
+- [x] EEG: confirmed by the owner on 1 Nov 2026. He recorded EEG with a Muse headband, so the EEG mentions on the
+  site stand. The Lab kit still calls the device an "EEG cap"; rename it when the Lab kit is reworked.
+- [x] Image rights: the owner confirmed on 1 Nov 2026 that he holds the rights to the headshot and project images.
+  He will supply high-resolution replacements later.
 - [ ] Public resume PDFs, one for Applied AI/ML and one for Spatial computing/XR. The download button stays off until then.
 - [ ] His master CV and resume still mention fNIRS and "13 peer-reviewed works". He plans to update them to match the site.
 
