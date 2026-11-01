@@ -1,0 +1,104 @@
+{
+  "peerReviewed": [
+    {
+      "year": 2026,
+      "title": "Information access costs with an augmented reality head-mounted display",
+      "authors": "Poole, C. A., Warden, A. C., Wickens, C. D., Raikwar, A., Clegg, B. A., Buckman, M., & Ortega, F. R.",
+      "venue": "Human Factors, 68(2), 149–161",
+      "url": "https://doi.org/10.1177/00187208251377311"
+    },
+    {
+      "year": 2026,
+      "title": "Beyond the Beep: Comparing visual-only and multimodal notification design for improved noticeability in AR",
+      "authors": "Raikwar, A., Borhani, Z., Plabst, L., Batmaz, A. U., Barrera Machuca, M. D., Niebling, F., & Ortega, F. R.",
+      "venue": "IEEE ISMAR 2026, poster (accepted)",
+      "url": ""
+    },
+    {
+      "year": 2024,
+      "title": "Ping! Your food is ready: Comparing different notification techniques in 3D AR cooking environment",
+      "authors": "Raikwar, A., Plabst, L., Batmaz, A. U., Niebling, F., & Ortega, F. R.",
+      "venue": "IEEE ISMAR 2024, 1157–1166",
+      "url": "https://doi.org/10.1109/ISMAR62088.2024.00132"
+    },
+    {
+      "year": 2024,
+      "title": "Beyond the Wizard of Oz: Negative effects of imperfect machine learning to examine the impact of reliability of augmented reality cues on visual search performance",
+      "authors": "Raikwar, A., Mifsud, D., Wickens, C. D., Batmaz, A. U., Warden, A. C., Kelley, B., Clegg, B. A., & Ortega, F. R.",
+      "venue": "IEEE Transactions on Visualization and Computer Graphics, 30(5), 2662–2670",
+      "url": "https://doi.org/10.1109/tvcg.2024.3372062"
+    },
+    {
+      "year": 2024,
+      "title": "Addressing human factors related to artificial intelligence integrated visual cueing",
+      "authors": "Kelley, B., Raikwar, A., Wickens, C. D., McMahan, R. P., Ortega, F. R., & Clegg, B. A.",
+      "venue": "IEEE ISMAR-Adjunct 2024, 209–213",
+      "url": "https://doi.org/10.1109/ISMAR-Adjunct64951.2024.00051"
+    },
+    {
+      "year": 2023,
+      "title": "Beyond the Wizard of Oz: Using imperfect machine learning to examine the impact of reliability of augmented reality cues on visual search performance",
+      "authors": "Raikwar, A., Mifsud, D., Wickens, C. D., Kelley, B., Warden, A. C., Clegg, B. A., & Ortega, F. R.",
+      "venue": "IEEE ISMAR-Adjunct 2023, 437–438",
+      "url": "https://doi.org/10.1109/ISMAR-Adjunct60411.2023.00093"
+    },
+    {
+      "year": 2023,
+      "title": "Exploring unimodal notification interaction and display methods in augmented reality",
+      "authors": "Plabst, L., Raikwar, A., Oberdörfer, S., Ortega, F. R., & Niebling, F.",
+      "venue": "ACM VRST 2023, 1–11",
+      "url": "https://doi.org/10.1145/3611659.3615683"
+    },
+    {
+      "year": 2023,
+      "title": "Information access costs with a wide-angle desktop display",
+      "authors": "Poole, C. A., Warden, A. C., Wickens, C. D., Raikwar, A., Clegg, B. A., & Ortega, F. R.",
+      "venue": "Proceedings of the HFES Annual Meeting, 67(1), 947–952",
+      "url": "https://doi.org/10.1177/21695067231192646"
+    },
+    {
+      "year": 2022,
+      "title": "ARtisan Bistro: A cooking task environment to conduct studies in augmented reality",
+      "authors": "Raikwar, A., Plabst, L., & Ortega, F. R.",
+      "venue": "IEEE ISMAR-Adjunct 2022, 909–910",
+      "url": "https://doi.org/10.1109/ISMAR-Adjunct57072.2022.00200"
+    },
+    {
+      "year": 2020,
+      "title": "Demo: Assessing sports related concussion in soccer players using immersive VR soccer",
+      "authors": "Raikwar, A., Stephens, J., & Ortega, F. R.",
+      "venue": "IEEE VR 2020 Abstracts and Workshops (VRW)",
+      "url": "https://doi.org/10.1109/VRW50115.2020.00262"
+    },
+    {
+      "year": 2019,
+      "title": "CubeVR: Digital affordances for architecture undergraduate education using virtual reality",
+      "authors": "Raikwar, A., D'Souza, N., Rogers, C., Kress, M., Williams, A., Rishe, N. D., & Ortega, F. R.",
+      "venue": "IEEE VR 2019, 1623–1626",
+      "url": "https://doi.org/10.1109/VR.2019.8798115"
+    },
+    {
+      "year": 2017,
+      "title": "Long-term and short-term traffic forecasting using Holt-Winters method: A comparability approach with comparable data in multiple seasons",
+      "authors": "Raikwar, A. R., Sadawarte, R. R., More, R. G., Gunjal, R. S., Mahalle, P. N., & Railkar, P. N.",
+      "venue": "International Journal of Synthetic Emotions, 8(2), 38–50",
+      "url": "https://doi.org/10.4018/IJSE.2017070103"
+    }
+  ],
+  "theses": [
+    {
+      "year": 2024,
+      "kind": "PhD dissertation",
+      "title": "Cooking up a better AR experience: Notification design and the liabilities of imperfect cues in augmented reality",
+      "venue": "Colorado State University",
+      "url": "https://hdl.handle.net/10217/239915"
+    },
+    {
+      "year": 2020,
+      "kind": "MS thesis",
+      "title": "Assessing usability of full-body immersion in an interactive virtual reality environment",
+      "venue": "Colorado State University",
+      "url": "https://www.proquest.com/dissertations-theses/assessing-usability-full-body-immersion/docview/2459449203/se-2"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "skills": {
+    "ml": {
+      "title": "Applied machine learning",
+      "line": "Deep learning on human behavior data, LLM pipelines and the statistics behind the studies.",
+      "projects": ["load", "cues", "agent"],
+      "chips": ["Python", "PyTorch", "TensorFlow", "CNNs and LSTMs", "LLMs", "pandas", "scikit-learn", "statsmodels", "Vector databases"]
+    },
+    "xr": {
+      "title": "Spatial computing and XR",
+      "line": "AR and VR applications for headsets and phones, from study environments to reusable frameworks.",
+      "projects": ["bistro", "notif", "cues", "soccer", "load"],
+      "chips": ["Unity (C#)", "Unreal (C++)", "ARCore", "MRTK", "WebXR", "Meta Quest", "HoloLens"]
+    },
+    "hs": {
+      "title": "Human sensing and research",
+      "line": "Sensing pipelines and user studies that measure what a system does to the people using it.",
+      "projects": ["bistro", "notif", "cues", "soccer", "load"],
+      "chips": ["Eye-tracking", "EEG", "Lab Streaming Layer", "Behavioral logging", "Usability testing", "ANOVA and power analysis"]
+    }
+  },
+  "skillOrder": {
+    "both": ["xr", "ml", "hs"],
+    "ai": ["ml", "hs", "xr"],
+    "xr": ["xr", "hs", "ml"]
+  },
+  "certs": [
+    { "mark": "DL", "title": "Generative AI with Large Language Models", "issuer": "DeepLearning.AI", "date": "Apr 2024", "url": "https://www.coursera.org/account/accomplishments/records/E2QP9MXVYSQW" },
+    { "mark": "G", "title": "Introduction to Augmented Reality and ARCore", "issuer": "Google", "date": "Mar 2023", "url": "https://www.coursera.org/account/accomplishments/certificate/NJVQRB7TUL5R" },
+    { "mark": "M", "title": "Programming with JavaScript", "issuer": "Meta", "date": "Apr 2023", "url": "https://www.coursera.org/account/accomplishments/certificate/RUBCK66N8JAJ" },
+    { "mark": "M", "title": "Introduction to Front-End Development", "issuer": "Meta", "date": "Mar 2023", "url": "https://www.coursera.org/account/accomplishments/certificate/H2YQGND7UCK4" },
+    { "mark": "M", "title": "Version Control", "issuer": "Meta", "date": "Mar 2023", "url": "https://www.coursera.org/account/accomplishments/certificate/P882VAQ4R8NC" }
+  ],
+  "kit": [
+    { "id": "ar", "name": "AR headset (HoloLens)", "text": "Augmented reality development in Unity with MRTK." },
+    { "id": "vr", "name": "VR headset (Meta Quest)", "text": "Standalone virtual reality development in Unity." },
+    { "id": "eye", "name": "Eye tracker", "text": "Gaze data synchronized through Lab Streaming Layer for cognitive-load prediction in VR." },
+    { "id": "eeg", "name": "EEG cap", "text": "Brain-signal recording synchronized with the simulation through Lab Streaming Layer." },
+    { "id": "phone", "name": "Phone with ARCore", "text": "Mobile augmented reality with Google ARCore." }
+  ]
+}

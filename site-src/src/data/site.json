@@ -1,0 +1,71 @@
+{
+  "name": "Aditya Raikwar",
+  "nameWithTitle": "Aditya Raikwar, PhD",
+  "now": "Now: postdoc at the University of Delaware HCI Lab",
+  "email": "adityaraikwar@gmail.com",
+  "url": "https://adirar.github.io",
+  "links": {
+    "linkedin": "https://www.linkedin.com/in/adirar/",
+    "scholar": "https://scholar.google.com/citations?user=JmcUBGsAAAAJ&hl=en",
+    "github": "https://github.com/adirar",
+    "youtube": "https://www.youtube.com/playlist?list=PLRTdJM22ga0HdjqeX8G2KMl1YThJGbN5b"
+  },
+  "playlistId": "PLRTdJM22ga0HdjqeX8G2KMl1YThJGbN5b",
+  "tracks": {
+    "both": {
+      "label": "Both",
+      "path": "/",
+      "focus": "Spatial computing and applied ML",
+      "headline": "I build immersive systems that understand the people using them.",
+      "sub": "I design AR and VR experiences in Unity, instrument them with eye-tracking and EEG, and train models that predict how people think and perform inside them.",
+      "title": "Aditya Raikwar, PhD | Spatial computing and applied ML",
+      "description": "Postdoctoral researcher building AR and VR systems in Unity and the machine learning models that predict how people perform inside them.",
+      "topSkills": ["Unity (C#)", "Python", "PyTorch", "Eye-tracking", "EEG", "Lab Streaming Layer"]
+    },
+    "ai": {
+      "label": "Applied AI / ML",
+      "path": "/ai/",
+      "focus": "Applied AI / ML",
+      "headline": "I turn gaze, brain and behavior data into models that predict how people perform.",
+      "sub": "End-to-end Python pipelines for physiological and interaction data, from hybrid CNN-GRU networks to fine-tuned, personalized LLMs for human-in-the-loop systems.",
+      "title": "Aditya Raikwar, PhD | Applied AI and machine learning",
+      "description": "AI/ML engineer and postdoctoral researcher: predictive models from human behavior data, CNN-GRU networks and personalized LLM pipelines.",
+      "topSkills": ["Python", "PyTorch", "TensorFlow", "LLMs", "pandas", "scikit-learn"]
+    },
+    "xr": {
+      "label": "Spatial computing / XR",
+      "path": "/xr/",
+      "focus": "Spatial computing / XR",
+      "headline": "I build AR and VR systems in Unity, then measure what they do to people.",
+      "sub": "Unity (C#) environments that stream EEG and eye-tracking through Lab Streaming Layer to measure cognitive load and engagement, backed by commercial R&D funding.",
+      "title": "Aditya Raikwar, PhD | Spatial computing and XR engineering",
+      "description": "Spatial computing engineer and applied research scientist building Unity AR and VR systems measured with real users.",
+      "topSkills": ["Unity (C#)", "Unreal (C++)", "ARCore", "MRTK", "Meta Quest", "HoloLens"]
+    }
+  },
+  "profile": [
+    { "k": "Role", "v": "Postdoctoral researcher" },
+    { "k": "Lab", "v": "HCI Lab, University of Delaware" },
+    { "k": "Education", "v": "PhD, Computer Science, Colorado State University" },
+    { "k": "Papers", "v": "12 peer-reviewed" }
+  ],
+  "order": {
+    "both": ["bistro", "load", "cues", "notif", "soccer", "agent"],
+    "ai": ["load", "cues", "agent", "notif", "bistro", "soccer"],
+    "xr": ["bistro", "notif", "soccer", "load", "cues", "agent"]
+  },
+  "milestones": [
+    { "id": "soccer", "year": "2020", "label": "VR soccer demo" },
+    { "id": "bistro", "year": "2022", "label": "ARtisan Bistro" },
+    { "id": "cues", "year": "2023", "label": "Imperfect AI cues" },
+    { "id": "notif", "year": "2024", "label": "PhD: AR notifications" },
+    { "id": "load", "year": "2025", "label": "Postdoc: cognitive load" }
+  ],
+  "logs": [
+    { "when": "2026", "text": "Beyond the Beep accepted as an IEEE ISMAR 2026 poster", "kind": "info" },
+    { "when": "2026", "text": "Information access costs with an AR head-mounted display, published in Human Factors", "kind": "info" },
+    { "when": "2025", "text": "Started as postdoctoral researcher, HCI Lab, University of Delaware", "kind": "info" },
+    { "when": "2024", "text": "PhD in Computer Science, Colorado State University", "kind": "info" },
+    { "when": "Now", "text": "Open to applied AI and spatial computing roles", "kind": "notice" }
+  ]
+}

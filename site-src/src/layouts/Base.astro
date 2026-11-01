@@ -1,0 +1,47 @@
+---
+import '../styles/global.css';
+import site from '../data/site.json';
+interface Props { track: 'both' | 'ai' | 'xr'; }
+const { track } = Astro.props;
+const t = site.tracks[track];
+const canonical = new URL(t.path, site.url).href;
+const ogImage = new URL('/images/og.jpg', site.url).href;
+---
+<!doctype html>
+<html lang="en" data-skin="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{t.title}</title>
+    <meta name="description" content={t.description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="theme-color" content="#1c1916" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={t.title} />
+    <meta property="og:description" content={t.description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script is:inline>
+      try {
+        var s = localStorage.getItem('skin');
+        if (s === 'light' || s === 'dark') document.documentElement.setAttribute('data-skin', s);
+      } catch (e) {}
+    </script>
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Person',
+      name: site.name,
+      jobTitle: 'Postdoctoral Researcher',
+      affiliation: { '@type': 'Organization', name: 'University of Delaware' },
+      alumniOf: { '@type': 'CollegeOrUniversity', name: 'Colorado State University' },
+      url: site.url,
+      sameAs: [site.links.linkedin, site.links.scholar, site.links.github]
+    })} />
+  </head>
+  <body data-track={track}>
+    <a class="skip" href="#work">Skip to projects</a>
+    <slot />
+  </body>
+</html>

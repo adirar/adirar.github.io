@@ -1,0 +1,76 @@
+{
+  "bistro": {
+    "label": "ARtisan Bistro",
+    "title": "ARtisan Bistro",
+    "line": "An open-source AR framework in Unity (C#) for running cooking-task studies, reused as the base of later spatial computing projects.",
+    "result": "Cut development time across projects by more than 50%",
+    "venue": "IEEE ISMAR-Adjunct 2022",
+    "tags": ["Unity", "C#", "Augmented reality", "Open source"],
+    "img": "/images/projects/bistro.jpg",
+    "alt": "Three virtual customers order food in the ARtisan Bistro AR restaurant",
+    "video": "bxwuPqLUAXo",
+    "paper": "https://doi.org/10.1109/ISMAR-Adjunct57072.2022.00200"
+  },
+  "notif": {
+    "label": "AR notifications",
+    "title": "Notifications in augmented reality",
+    "line": "Compared sound, object-anchored, viewport and arrow notifications while people cooked in AR.",
+    "result": "Visual-only notifications matched audio-visual ones",
+    "venue": "IEEE ISMAR 2024 and 2026, ACM VRST 2023",
+    "tags": ["AR interaction", "User studies", "Unity"],
+    "img": "/images/projects/notifications.jpg",
+    "alt": "A virtual burger being assembled in AR",
+    "video": "63hNEb4o_tU",
+    "paper": "https://doi.org/10.1109/ISMAR62088.2024.00132"
+  },
+  "cues": {
+    "label": "Imperfect AI cues",
+    "title": "Imperfect AI cues in AR",
+    "line": "YOLOv5 object detection drove AR cues in a visual search task, to test how unreliable AI changes what people do.",
+    "result": "53-participant study on automation bias",
+    "venue": "IEEE TVCG 2024",
+    "tags": ["YOLOv5", "Computer vision", "Human factors"],
+    "img": "/images/projects/ai-cues.jpg",
+    "alt": "A study participant wearing a headset searches a room of colored blocks",
+    "video": "imjkdcwqTsc",
+    "paper": "https://doi.org/10.1109/tvcg.2024.3372062"
+  },
+  "soccer": {
+    "label": "VR soccer",
+    "title": "VR soccer for concussion assessment",
+    "line": "Immersive VR soccer drills for assessing sports-related concussion in players.",
+    "result": "Basis of nearly $70,000 in Innovation Delaware fellowship funding to commercialize it",
+    "venue": "IEEE VR 2020 demo",
+    "tags": ["Virtual reality", "Health tech", "Usability"],
+    "img": "/images/projects/vr-soccer.jpg",
+    "alt": "A virtual soccer player lines up a shot on goal",
+    "video": "3qTYalJ1mQE",
+    "paper": "https://doi.org/10.1109/VRW50115.2020.00262"
+  },
+  "load": {
+    "label": "Cognitive load in VR",
+    "title": "Predicting cognitive load in VR",
+    "line": "Synchronized gaze tracking and behavioral logs through Lab Streaming Layer during a 33-step VR training simulation.",
+    "result": "CNN-GRU model predicts cognitive load with up to 73.08% test accuracy",
+    "venue": "Postdoc, University of Delaware",
+    "tags": ["Deep learning", "Eye-tracking", "LSL", "Unity"],
+    "img": "",
+    "alt": "",
+    "placeholder": "Video of the VR training simulation coming soon",
+    "video": "",
+    "paper": ""
+  },
+  "agent": {
+    "label": "Adaptive Friend Agent",
+    "title": "Adaptive Friend Agent",
+    "line": "A personalized LLM conversational agent with vector-database memory and SpeechBrain voice recognition, built for multi-user conversation.",
+    "result": "81.31% BLEU-1 on response generation",
+    "venue": "Postdoc, University of Delaware",
+    "tags": ["LLMs", "Vector databases", "SpeechBrain", "Python"],
+    "img": "",
+    "alt": "",
+    "placeholder": "Video of the agent in conversation coming soon",
+    "video": "",
+    "paper": ""
+  }
+}
