@@ -15,12 +15,12 @@
     "both": {
       "label": "Both",
       "path": "/",
-      "focus": "Spatial computing and applied ML",
+      "focus": "Applied ML and spatial computing",
       "headline": "I build immersive systems that understand the people using them.",
       "sub": "I design AR and VR experiences in Unity, instrument them with eye-tracking and EEG, and train models that predict how people think and perform inside them.",
-      "title": "Aditya Raikwar, PhD | Spatial computing and applied ML",
+      "title": "Aditya Raikwar, PhD | Applied ML and spatial computing",
       "description": "Postdoctoral researcher building AR and VR systems in Unity and the machine learning models that predict how people perform inside them.",
-      "topSkills": ["Unity (C#)", "Python", "PyTorch", "Eye-tracking", "EEG", "Lab Streaming Layer"]
+      "topSkills": ["Python", "PyTorch", "Unity (C#)", "Eye-tracking", "EEG", "Lab Streaming Layer"]
     },
     "ai": {
       "label": "Applied AI / ML",
@@ -50,7 +50,7 @@
     { "k": "Papers", "v": "12 peer-reviewed" }
   ],
   "order": {
-    "both": ["bistro", "load", "cues", "notif", "soccer", "agent"],
+    "both": ["cues", "load", "bistro", "agent", "notif", "soccer"],
     "ai": ["load", "cues", "agent", "notif", "bistro", "soccer"],
     "xr": ["bistro", "notif", "soccer", "load", "cues", "agent"]
   },

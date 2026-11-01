@@ -20,7 +20,7 @@
     }
   },
   "skillOrder": {
-    "both": ["xr", "ml", "hs"],
+    "both": ["ml", "xr", "hs"],
     "ai": ["ml", "hs", "xr"],
     "xr": ["xr", "hs", "ml"]
   },

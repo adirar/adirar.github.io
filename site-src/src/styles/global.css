@@ -174,9 +174,11 @@ button { font: inherit; color: inherit; }
 .view-strip[data-ui] span:last-child { margin-left: auto; }
 .viewport { position: relative; flex: 1 1 auto; min-height: 620px; overflow: hidden; background: var(--scene); }
 
-.floor[data-ui] { position: absolute; left: -35%; right: -35%; bottom: -2px; height: 30%; transform: perspective(620px) rotateX(62deg); transform-origin: 50% 100%; display: grid; grid-template-columns: repeat(24, minmax(0, 1fr)); grid-template-rows: repeat(10, minmax(0, 1fr)); border-top: 1px solid var(--grid); -webkit-mask-image: linear-gradient(to top, #000 55%, transparent); mask-image: linear-gradient(to top, #000 55%, transparent); } /* taste-skill-ignore: fades the editor floor grid out, not a colour fill */
+.floor[data-ui] { position: absolute; left: -35%; right: -35%; bottom: -2px; height: 72%; transform: perspective(620px) rotateX(58deg); transform-origin: 50% 100%; display: grid; grid-template-columns: repeat(32, minmax(0, 1fr)); grid-template-rows: repeat(14, minmax(0, 1fr)); border-top: 1px solid var(--grid); -webkit-mask-image: linear-gradient(to top, #000 55%, transparent); mask-image: linear-gradient(to top, #000 55%, transparent); } /* taste-skill-ignore: fades the editor floor grid out, not a colour fill */
 .floor[data-ui] div { border-right: 1px solid var(--grid); border-bottom: 1px solid var(--grid); transition: background-color 1.4s ease-out, box-shadow 1.4s ease-out; }
 .floor[data-ui] div:hover { background-color: var(--glow); box-shadow: 0 0 22px var(--glow); transition: none; }
+.floor[data-ui].wave div { animation: cell-wave 1000ms ease-out var(--wd, 0ms) both; }
+@keyframes cell-wave { 0%, 100% { background-color: transparent; box-shadow: none; } 30% { background-color: var(--glow); box-shadow: 0 0 22px var(--glow); } } /* taste-skill-ignore: the scene floor glow, same as its hover state */
 
 /* The hero sits in the Scene view and follows the page rules */
 .hero { position: relative; padding: 40px 120px 200px 48px; display: flex; flex-direction: column; gap: 18px; pointer-events: none; }
@@ -381,7 +383,7 @@ button { font: inherit; color: inherit; }
 .contact .social a { display: inline-flex; align-items: center; min-height: 44px; color: var(--ctext); }
 
 /* Footer: columns above, the name below */
-.foot { max-width: var(--max); margin: 0 auto; padding: 96px var(--m) 24px; overflow: clip; container-type: inline-size; }
+.page-foot { max-width: var(--max); margin: 0 auto; padding: 96px var(--m) 24px; overflow: clip; container-type: inline-size; }
 .foot-cols { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px; font-size: var(--fs-sm); }
 .foot-cols p { margin: 0 0 8px; }
 .foot-cols a { display: block; padding: 4px 0; color: var(--muted); text-decoration: none; }
@@ -443,7 +445,7 @@ button { font: inherit; color: inherit; }
   .contact .email span { display: block; }
   .contact .email { font-size: 11.5vw; }
   .contact .social { flex-direction: column; justify-content: flex-start; }
-  .foot { padding-top: 64px; }
+  .page-foot { padding-top: 64px; }
   .foot-cols { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .foot-cols .legal { grid-column: 1 / -1; text-align: left; }
   .wordmark { margin-top: 48px; }

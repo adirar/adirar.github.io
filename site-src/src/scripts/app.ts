@@ -207,6 +207,27 @@ skinBtn?.addEventListener('click', () => {
 });
 paintSkinLabel();
 
+/* Scene floor: a wave of lit tiles spreads from the front on the first load of a visit */
+const floor = $('.floor');
+if (floor && !reduceMotion && getComputedStyle(floor).display !== 'none') {
+  let seen = false;
+  try {
+    seen = sessionStorage.getItem('floorWave') === '1';
+    sessionStorage.setItem('floorWave', '1');
+  } catch (e) {}
+  if (!seen) {
+    const cols = 32;
+    const rows = 14;
+    $$('div', floor).forEach((c, i) => {
+      const x = i % cols;
+      const y = Math.floor(i / cols);
+      c.style.setProperty('--wd', Math.round(300 + Math.hypot(x - (cols - 1) / 2, (rows - 1 - y) * 1.6) * 45) + 'ms');
+    });
+    floor.classList.add('wave');
+    setTimeout(() => floor.classList.remove('wave'), 2900);
+  }
+}
+
 /* Narrow menu closes once a link is chosen */
 const menu = $<HTMLDetailsElement>('[data-menu]');
 menu?.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => (menu.open = false)));
