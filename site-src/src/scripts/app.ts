@@ -166,6 +166,8 @@ activate(data.order[track][0]);
 
 /* Hiring-for track: instant switch, real URLs */
 function applyTrack(t: Track, push: boolean) {
+  // Jumping to a #section also fires popstate; only a real track change resets the work frame
+  const changed = t !== track;
   track = t;
   document.body.dataset.track = t;
   document.title = data.tracks[t].title;
@@ -174,7 +176,7 @@ function applyTrack(t: Track, push: boolean) {
     else a.removeAttribute('aria-current');
   });
   if (push && location.pathname !== data.tracks[t].path) history.pushState({ track: t }, '', data.tracks[t].path);
-  activate(data.order[t][0]);
+  if (changed) activate(data.order[t][0]);
 }
 $$('[data-track-link]').forEach((a) =>
   a.addEventListener('click', (e) => {
