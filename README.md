@@ -26,5 +26,10 @@ and open the address it prints (usually http://localhost:4321).
 ## Publish a change
 
 1. Edit the files in `site-src/src/` (usually the JSON files in `src/data/`).
-2. Run `site-src/deploy.sh` to rebuild the site into the top level of this folder.
+2. In `site-src/`, run `npm ci` once, then `npm run deploy` to rebuild the site into the top level of this folder.
 3. Commit and push to the `main` branch; GitHub Pages updates in about a minute.
+
+## Working with Claude Code
+
+`CLAUDE.md` (rules and architecture) and `HANDOVER.md` (status, backlog, kickoff prompt) brief Claude Code
+on this project. Start Claude Code in this folder and paste the kickoff prompt from `HANDOVER.md`.
