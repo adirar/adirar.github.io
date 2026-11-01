@@ -342,3 +342,6 @@ body[data-track='xr'] .t-both, body[data-track='xr'] .t-ai { display: none !impo
 body[data-track='both'] .ord { order: var(--o-both); }
 body[data-track='ai'] .ord { order: var(--o-ai); }
 body[data-track='xr'] .ord { order: var(--o-xr); }
+
+/* Keep the gizmo off the video player controls */
+.viewport:has(.game:not([hidden])) .gizmo { display: none; }
