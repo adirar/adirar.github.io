@@ -301,9 +301,9 @@ button { font: inherit; color: inherit; }
 @media (min-width: 900px) {
   .js .idx { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); column-gap: 64px; row-gap: 0; align-items: start; }
   .js .proj { display: contents; }
-  .js .proj-row { grid-column: 1; display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 24px; width: 100%; padding: 12px 0; border: 0; background: none; color: var(--muted); text-align: left; cursor: pointer; transition: color var(--t-hover) ease; }
-  .js .proj-row .nm { font-size: var(--fs-h2); line-height: 1; letter-spacing: -0.035em; }
-  .js .proj-row .mt { font-size: var(--fs-sm); }
+  .js .proj-row { grid-column: 1; display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: baseline; gap: 4px 32px; width: 100%; padding: 10px 0; border: 0; background: none; color: var(--muted); text-align: left; cursor: pointer; transition: color var(--t-hover) ease; }
+  .js .proj-row .nm { font-size: clamp(30px, 3.2vw, 46px); line-height: 1.05; letter-spacing: -0.035em; }
+  .js .proj-row .mt { max-width: 16em; font-size: var(--fs-sm); line-height: 1.35; text-align: right; }
   .js .proj-row:hover, .js .proj-row[aria-pressed='true'] { color: var(--text); }
   .js .proj-row[aria-pressed='true'] .mt { color: var(--result); }
   .js .proj-body { grid-column: 2; grid-row: 1 / span 6; position: sticky; top: 10vh; max-width: none; visibility: hidden; opacity: 0; transition: opacity var(--t-ui) ease, visibility 0s var(--t-ui); }
@@ -311,6 +311,11 @@ button { font: inherit; color: inherit; }
   .js .proj-body h3 { font-size: var(--fs-lead); font-weight: 600; letter-spacing: 0; }
   .js .proj-body p { font-size: var(--fs-sm); }
   .js .proj-body .res { font-size: var(--fs-body); }
+}
+@media (min-width: 900px) and (max-width: 1199px) {
+  /* Not enough width for the venue beside the name: every row puts it underneath */
+  .js .proj-row { grid-template-columns: minmax(0, 1fr); }
+  .js .proj-row .mt { max-width: none; text-align: left; }
 }
 
 /* Publications and certificates: a line-up at one size */
