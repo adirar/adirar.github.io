@@ -308,25 +308,45 @@ const clientData = {
 
     <section id="skills" class="sec skills-sec">
       <h2 data-reveal>Skills</h2>
-      <p class="lead" data-reveal>Each group lists the featured projects that use it, not a self-rating.</p>
+      <p class="lead" data-reveal>Each bar counts the featured projects that use the skill group, not a self-rating.</p>
       <div class="sk-list">
         {Object.entries(extras.skills).map(([k, g]) => (
           <div class="sk ord" style={ord(extras.skillOrder as Record<Track, string[]>, k)} data-cycle data-reveal>
-            <p class="sk-line"><span class="sk-k">{g.title}:</span> {g.chips.map((c, i) => <Fragment><span class="sk-i">{c}</span>{i < g.chips.length - 1 ? ', ' : '.'}</Fragment>)}</p>
-            <p class="sk-proof">{g.line} Used in {g.projects.length} of {ids.length} featured projects: {g.projects.map((pid, i) => <Fragment><a href="#work" data-proj-link={pid}>{P[pid].label}</a>{i < g.projects.length - 1 ? ', ' : '.'}</Fragment>)}</p>
+            <h3 class="sk-title">{g.title}</h3>
+            <p class="sk-meter">
+              <span>Used in {g.projects.length} of {ids.length} featured projects</span>
+              <span class="bar" aria-hidden="true"><span style={`--p:${g.projects.length / ids.length}`}></span></span>
+            </p>
+            <ul class="sk-chips">{g.chips.map((c) => <li class="sk-i">{c}</li>)}</ul>
+            <p class="sk-line">{g.line}</p>
+            <ul class="sk-thumbs" aria-label={`Projects that use ${g.title.toLowerCase()}`}>
+              {g.projects.map((pid) => (
+                <li class="ord" style={ord(site.order as Record<Track, string[]>, pid)}>
+                  <a href="#work" data-proj-link={pid}>
+                    <span class="th">{P[pid].img ? <img src={P[pid].img} alt="" width="800" height="450" loading="lazy" /> : <Icon name={artFor(pid)} />}</span>
+                    <span class="lb">{P[pid].label}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
         ))}
       </div>
       <h3 class="grp">Certificates</h3>
-      <ul class="lineup certs">
+      <div class="certs">
         {extras.certs.map((c) => (
-          <li data-reveal>
-            <div class="c-t"><a href={c.url}>{c.title}</a></div>
-            <span class="c-v">{c.issuer}</span>
-            <span class="c-y">{c.date}</span>
-          </li>
+          <div class="cert" data-reveal>
+            <span class="logo" aria-hidden="true">
+              {c.logo === 'deeplearningai'
+                ? <img src="/images/certs/deeplearningai.png" alt="" width="30" height="30" />
+                : <Icon name={c.logo} size={30} />}
+            </span>
+            <span class="t">{c.title}</span>
+            <span class="m">{c.issuer}, {c.date}</span>
+            <a href={c.url}>View credential</a>
+          </div>
         ))}
-      </ul>
+      </div>
     </section>
 
     <section id="kit" class="sec kit-sec">
