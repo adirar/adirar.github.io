@@ -2,3 +2,5 @@ site-src/node_modules/
 site-src/dist/
 site-src/.astro/
 .DS_Store
+
+.taste-skill/
