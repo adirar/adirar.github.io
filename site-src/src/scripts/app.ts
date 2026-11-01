@@ -150,6 +150,20 @@ $$('[role="tablist"]').forEach((list) =>
   })
 );
 
+/* Work index: pointing at, focusing or clicking a name shows that project in the side frame */
+function activate(id: string) {
+  $$('[data-proj-btn]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.projBtn === id)));
+  $$('[data-proj-body]').forEach((b) => b.classList.toggle('on', b.dataset.projBody === id));
+}
+$$('[data-proj-btn]').forEach((b) => {
+  const go = () => activate(b.dataset.projBtn!);
+  b.addEventListener('pointerenter', go);
+  b.addEventListener('focus', go);
+  b.addEventListener('click', go);
+});
+$$('[data-proj-link]').forEach((a) => a.addEventListener('click', () => activate(a.dataset.projLink!)));
+activate(data.order[track][0]);
+
 /* Hiring-for track: instant switch, real URLs */
 function applyTrack(t: Track, push: boolean) {
   track = t;
@@ -160,6 +174,7 @@ function applyTrack(t: Track, push: boolean) {
     else a.removeAttribute('aria-current');
   });
   if (push && location.pathname !== data.tracks[t].path) history.pushState({ track: t }, '', data.tracks[t].path);
+  activate(data.order[t][0]);
 }
 $$('[data-track-link]').forEach((a) =>
   a.addEventListener('click', (e) => {
@@ -190,6 +205,35 @@ skinBtn?.addEventListener('click', () => {
 });
 paintSkinLabel();
 
+/* Narrow menu closes once a link is chosen */
+const menu = $<HTMLDetailsElement>('[data-menu]');
+menu?.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => (menu.open = false)));
+
+/* Section parts rise in once, staggered within each section */
+const reveals = $$('[data-reveal]');
+if ('IntersectionObserver' in window) {
+  $$('section').forEach((s) => $$('[data-reveal]', s).forEach((el, i) => el.style.setProperty('--rd', Math.min(i, 6) * 70 + 'ms')));
+  const ro = new IntersectionObserver(
+    (entries) => {
+      for (const e of entries) if (e.isIntersecting) { e.target.classList.add('is-in'); ro.unobserve(e.target); }
+    },
+    { rootMargin: '0px 0px -10% 0px', threshold: 0 }
+  );
+  reveals.forEach((el) => ro.observe(el));
+} else reveals.forEach((el) => el.classList.add('is-in'));
+
+/* Skills: one name in each sentence is lit at a time */
+if (!reduceMotion) {
+  $$('[data-cycle]').forEach((g, gi) => {
+    const items = $$('.sk-i', g);
+    let i = gi;
+    setInterval(() => {
+      items.forEach((it, j) => it.classList.toggle('lit', j === i % items.length));
+      i++;
+    }, 2000);
+  });
+}
+
 /* Lab kit: objects drop in when the section scrolls into view; one can be focused */
 const grid = $('[data-kit-grid]');
 if (grid) {
@@ -206,7 +250,7 @@ if (grid) {
         });
         io.disconnect();
       },
-      { threshold: 0.3 }
+      { threshold: 0.15 }
     );
     io.observe(grid);
   }

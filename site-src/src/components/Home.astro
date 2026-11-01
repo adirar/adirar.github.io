@@ -22,6 +22,7 @@ const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replac
 const boldMe = (a: string) => esc(a).replace(/(Raikwar, A\.(?: R\.)?)/, '<b>$1</b>');
 const artFor = (id: string) => (id === 'agent' ? 'art-agent' : 'art-load');
 const cells = Array.from({ length: 240 }, (_, i) => i);
+const sections = [['#work', 'Work'], ['#publications', 'Publications'], ['#skills', 'Skills'], ['#kit', 'Lab kit'], ['#connect', 'Connect']];
 const clientData = {
   order: site.order,
   playlistId: site.playlistId,
@@ -34,19 +35,22 @@ const clientData = {
 <Base track={track}>
   <div class="ed-wrap" id="top">
     <div class="ed" data-editor data-sel="root">
-      <div class="ed-menu">
-        <nav aria-label="Main">
+      <header class="ed-menu">
+        <nav aria-label="Main" class="menu-wide">
           <a class="brand" href="#top"><Icon name="cube" size={18} />Aditya Raikwar</a>
-          <a href="#work">Work</a>
-          <a href="#publications">Publications</a>
-          <a href="#skills">Skills</a>
-          <a href="#kit">Lab kit</a>
-          <a href="#connect">Connect</a>
+          {sections.map(([h, l]) => <a href={h}>{l}</a>)}
         </nav>
-        <button type="button" class="btn-ghost" data-skin-toggle><Icon name="skin" size={14} /><span data-skin-label>Light skin</span></button>
-      </div>
+        <a class="brand menu-narrow" href="#top"><Icon name="cube" size={20} /><span>Aditya Raikwar, back to top</span></a>
+        <div class="menu-end">
+          <button type="button" class="skin-btn" data-skin-toggle><Icon name="skin" size={14} /><span data-skin-label>Light skin</span></button>
+          <details class="menu-narrow menu-pop" data-menu>
+            <summary>Menu</summary>
+            <nav aria-label="Main">{sections.map(([h, l]) => <a href={h}>{l}</a>)}</nav>
+          </details>
+        </div>
+      </header>
 
-      <div class="ed-bar">
+      <div class="ed-bar" data-ui>
         <div class="seg icons tools" role="group" aria-label="Scene tools">
           {[['hand', 'Hand tool'], ['move', 'Move tool'], ['rotate', 'Rotate tool'], ['scale', 'Scale tool'], ['rect', 'Rect tool']].map(([n, l]) => (
             <button type="button" data-tool aria-label={l} aria-pressed={n === 'move' ? 'true' : 'false'}><Icon name={n} size={18} /></button>
@@ -68,7 +72,7 @@ const clientData = {
       </div>
 
       <div class="ed-main">
-        <nav class="hier" aria-label="Projects">
+        <nav class="hier" aria-label="Projects" data-ui>
           <div class="pane-tabs"><span class="pane-tab static">Hierarchy</span></div>
           <div class="hier-search">
             <label><Icon name="search" size={12} /><span class="sr-only">Search projects</span><input type="search" placeholder="Search" data-search autocomplete="off" /></label>
@@ -83,28 +87,26 @@ const clientData = {
         </nav>
 
         <div class="view">
-          <div class="pane-tabs" role="tablist" aria-label="Viewport">
+          <div class="pane-tabs" role="tablist" aria-label="Viewport" data-ui>
             <button type="button" role="tab" class="pane-tab" aria-selected="true" aria-controls="viewport" data-view="scene">Scene</button>
             <button type="button" role="tab" class="pane-tab" aria-selected="false" aria-controls="viewport" data-view="game">Game</button>
           </div>
-          <div class="view-strip" aria-hidden="true"><span>Shaded</span><span>2D</span><span>Lighting</span><span>Gizmos</span></div>
+          <div class="view-strip" aria-hidden="true" data-ui><span>Shaded</span><span>2D</span><span>Lighting</span><span>Gizmos</span></div>
           <div class="viewport" id="viewport" role="tabpanel" aria-label="Viewport">
             <div data-pane-scene="root">
-              <div class="floor" aria-hidden="true">{cells.map(() => <div />)}</div>
+              <div class="floor" aria-hidden="true" data-ui>{cells.map(() => <div />)}</div>
               <div class="hero">
-                <div class="hero-id">
-                  <img src="/images/headshot.jpg" alt="Aditya Raikwar" width="72" height="72" />
-                  <div style="display:flex;flex-direction:column;gap:6px">
-                    <span style="font-size:18px">{site.nameWithTitle}</span>
-                    <span class="now">{site.now}</span>
-                  </div>
+                <div class="hero-name">
+                  <img src="/images/headshot.jpg" alt="Portrait of Aditya Raikwar" width="96" height="96" data-load style="--d:200ms" />
+                  <h1 class="lines"><span class="line"><span data-line>{site.name}</span></span></h1>
                 </div>
-                <h1>{allTracks.map((k) => <span class={`t-${k}`}>{site.tracks[k].headline}</span>)}</h1>
-                <p class="sub">{allTracks.map((k) => <span class={`t-${k}`}>{site.tracks[k].sub}</span>)}</p>
-                <div class="cta">
+                <p class="statement" data-load style="--d:360ms">{allTracks.map((k) => <span class={`t-${k}`}>{site.tracks[k].headline}</span>)}</p>
+                <p class="sub" data-load style="--d:420ms">{allTracks.map((k) => <span class={`t-${k}`}>{site.tracks[k].sub}</span>)}</p>
+                <div class="cta" data-load style="--d:480ms">
                   <a class="pill solid" href="#work">See my work</a>
-                  <a class="pill line" href={`mailto:${site.email}`}>Email me</a>
+                  <a class="tlink" href={`mailto:${site.email}`}>Email me</a>
                 </div>
+                <p class="now" data-load style="--d:540ms">{site.now}</p>
               </div>
             </div>
             {ids.map((id) => (
@@ -119,7 +121,7 @@ const clientData = {
               </div>
             ))}
             <div class="game" data-game hidden><div data-game-slot style="width:100%;height:100%;display:flex;align-items:center;justify-content:center"></div></div>
-            <svg class="gizmo" role="img" aria-label="Orientation gizmo" width="84" height="84" viewBox="0 0 84 84">
+            <svg class="gizmo" data-ui role="img" aria-label="Orientation gizmo" width="84" height="84" viewBox="0 0 84 84">
               <circle cx="42" cy="42" r="40" style="fill: var(--panel)" opacity="0.85" />
               <path d="M42 42V14" stroke="#7BC043" stroke-width="3" /><path d="M36 18l6-10 6 10z" fill="#7BC043" />
               <path d="M42 42h28" stroke="#E0574A" stroke-width="3" /><path d="M66 36l10 6-10 6z" fill="#E0574A" />
@@ -132,7 +134,7 @@ const clientData = {
           </div>
         </div>
 
-        <aside class="insp" aria-label="Inspector">
+        <aside class="insp" aria-label="Inspector" data-ui>
           <div class="pane-tabs"><span class="pane-tab static">Inspector</span></div>
           <div data-pane-insp="root">
             <div class="insp-head"><span class="check"><Icon name="check" size={10} /></span><span class="field">{site.name}</span></div>
@@ -188,7 +190,7 @@ const clientData = {
         </aside>
       </div>
 
-      <div class="ed-bottom">
+      <div class="ed-bottom" data-ui>
         <div class="pane-tabs">
           <div role="tablist" aria-label="Bottom panel" style="display:flex">
             <button type="button" role="tab" class="pane-tab" aria-selected="true" aria-controls="bp-timeline" data-bottom="timeline">Timeline</button>
@@ -238,32 +240,37 @@ const clientData = {
         </div>
       </div>
 
-      <div class="status"><span data-status>Ready</span><span>12 peer-reviewed papers, 6 featured projects</span></div>
+      <div class="status" data-ui><span data-status>Ready</span><span>12 peer-reviewed papers, 6 featured projects</span></div>
     </div>
   </div>
 
   <main>
-    <section id="work" class="sec">
-      <h2>Things I've built</h2>
-      <div class="cards">
+    <section id="work" class="sec work">
+      <div class="work-head" data-reveal>
+        <h2>Things I've built</h2>
+        <p>Six projects, from a reusable AR framework to models that predict cognitive load.</p>
+      </div>
+      <div class="idx" data-idx>
         {ids.map((id) => (
-          <article class="card ord" style={ord(site.order as Record<Track, string[]>, id)}>
-            <div class="media">
-              {P[id].img ? <img src={P[id].img} alt={P[id].alt} loading="lazy" /> : <div class="art"><Icon name={artFor(id)} /></div>}
-            </div>
-            <div class="txt">
+          <article class="proj ord" style={ord(site.order as Record<Track, string[]>, id)} data-proj={id}>
+            <button type="button" class="proj-row ord" data-proj-btn={id} aria-pressed="false" aria-controls={`pj-${id}`}>
+              <span class="nm">{P[id].label}</span><span class="mt">{P[id].venue}</span>
+            </button>
+            <div class="proj-body" id={`pj-${id}`} data-proj-body={id}>
+              <figure class="proj-media">
+                {P[id].img
+                  ? <img src={P[id].img} alt={P[id].alt} width="800" height="450" loading="lazy" />
+                  : <div class="art"><Icon name={artFor(id)} /><span>{P[id].placeholder}</span></div>}
+              </figure>
               <h3>{P[id].title}</h3>
               <p class="line">{P[id].line}</p>
               <p class="res">{P[id].result}</p>
-              <div class="meta">
-                <span class="venue">{P[id].venue}</span>
-                {P[id].tags.map((t) => <span class="tag">{t}</span>)}
-              </div>
+              <p class="stack">{P[id].venue}. {P[id].tags.join(', ')}.</p>
               {(P[id].video || P[id].paper) && (
-                <div class="links">
+                <p class="links">
                   {P[id].video && <a href={yt(P[id].video)}>Watch the demo</a>}
                   {P[id].paper && <a href={P[id].paper}>Read the paper</a>}
-                </div>
+                </p>
               )}
             </div>
           </article>
@@ -271,95 +278,88 @@ const clientData = {
       </div>
     </section>
 
-    <section id="publications" class="sec">
-      <h2>Publications</h2>
-      <p class="lead">12 peer-reviewed papers, plus my PhD and MS theses. Citations are on <a href={site.links.scholar}>Google Scholar</a>.</p>
-      <ol class="pubs">
+    <section id="publications" class="sec pubs-sec">
+      <h2 data-reveal>Publications</h2>
+      <p class="lead" data-reveal>12 peer-reviewed papers, plus my PhD and MS theses. Citations are on <a href={site.links.scholar}>Google Scholar</a>.</p>
+      <h3 class="grp">Peer-reviewed</h3>
+      <ol class="lineup">
         {pubs.peerReviewed.map((p) => (
-          <li class="pub">
-            <span class="yr mono">{p.year}</span>
-            <div>
-              <p class="t">{p.url ? <a href={p.url}>{p.title}</a> : p.title}</p>
-              <p class="au" set:html={boldMe(p.authors)} />
-              <p class="ve">{p.venue}</p>
+          <li data-reveal>
+            <div class="c-t">
+              {p.url ? <a href={p.url}>{p.title}</a> : <span>{p.title}</span>}
+              <span class="au" set:html={boldMe(p.authors)} />
             </div>
+            <span class="c-v">{p.venue}</span>
+            <span class="c-y">{p.year}</span>
           </li>
         ))}
       </ol>
-      <h3 class="pub-sub">Theses</h3>
-      <ol class="pubs">
+      <h3 class="grp">Theses</h3>
+      <ol class="lineup">
         {pubs.theses.map((p) => (
-          <li class="pub">
-            <span class="yr mono">{p.year}</span>
-            <div>
-              <p class="t"><a href={p.url}>{p.title}</a></p>
-              <p class="ve">{p.kind}, {p.venue}</p>
-            </div>
+          <li data-reveal>
+            <div class="c-t"><a href={p.url}>{p.title}</a></div>
+            <span class="c-v">{p.kind}, {p.venue}</span>
+            <span class="c-y">{p.year}</span>
           </li>
         ))}
       </ol>
     </section>
 
-    <section id="skills" class="sec">
-      <h2>Skills</h2>
-      <p class="lead">Each bar counts the featured projects above that use the skill, not a self-rating.</p>
-      <div class="skill-grid">
+    <section id="skills" class="sec skills-sec">
+      <h2 data-reveal>Skills</h2>
+      <p class="lead" data-reveal>Each group lists the featured projects that use it, not a self-rating.</p>
+      <div class="sk-list">
         {Object.entries(extras.skills).map(([k, g]) => (
-          <div class="skill ord" style={ord(extras.skillOrder as Record<Track, string[]>, k)}>
-            <h3>{g.title}</h3>
-            <p>{g.line}</p>
-            <div>
-              <div class="bar" role="img" aria-label={`Used in ${g.projects.length} of ${ids.length} featured projects`}><span style={`width:${Math.round((g.projects.length / ids.length) * 100)}%`}></span></div>
-              <span class="count mono">Used in {g.projects.length} of {ids.length} featured projects</span>
-            </div>
-            <div class="chips">{g.chips.map((s) => <span>{s}</span>)}</div>
+          <div class="sk ord" style={ord(extras.skillOrder as Record<Track, string[]>, k)} data-cycle data-reveal>
+            <p class="sk-line"><span class="sk-k">{g.title}:</span> {g.chips.map((c, i) => <Fragment><span class="sk-i">{c}</span>{i < g.chips.length - 1 ? ', ' : '.'}</Fragment>)}</p>
+            <p class="sk-proof">{g.line} Used in {g.projects.length} of {ids.length} featured projects: {g.projects.map((pid, i) => <Fragment><a href="#work" data-proj-link={pid}>{P[pid].label}</a>{i < g.projects.length - 1 ? ', ' : '.'}</Fragment>)}</p>
           </div>
         ))}
       </div>
-      <h3 class="pub-sub">Certificates</h3>
-      <div class="certs">
+      <h3 class="grp">Certificates</h3>
+      <ul class="lineup certs">
         {extras.certs.map((c) => (
-          <div class="cert">
-            <span class="hex mono" aria-hidden="true">{c.mark}</span>
-            <span class="t">{c.title}</span>
-            <span class="m">{c.issuer}, {c.date}</span>
-            <a href={c.url} style="font-size:14px">View credential</a>
-          </div>
+          <li data-reveal>
+            <div class="c-t"><a href={c.url}>{c.title}</a></div>
+            <span class="c-v">{c.issuer}</span>
+            <span class="c-y">{c.date}</span>
+          </li>
         ))}
-      </div>
+      </ul>
     </section>
 
-    <section id="kit" class="sec">
-      <h2>Lab kit</h2>
-      <p class="lead">Hardware I have built and run studies with. Pick one to bring it into focus.</p>
+    <section id="kit" class="sec kit-sec">
+      <h2 data-reveal>Lab kit</h2>
+      <p class="lead" data-reveal>Hardware I have built and run studies with.</p>
       <div class="kit" data-kit-grid>
-        {extras.kit.map((k) => (
-          <button type="button" class="kit-item" data-kit={k.id} aria-pressed="false"><Icon name={k.id} size={72} /><span>{k.name}</span></button>
+        {extras.kit.map((k, i) => (
+          <button type="button" class={`kit-item tile-${(i % 3) + 1}`} data-kit={k.id} aria-pressed="false"><Icon name={k.id} size={120} /><span>{k.name}</span></button>
         ))}
       </div>
       <div class="kit-detail" aria-live="polite"><strong data-kit-title>Select an object</strong><span data-kit-text>Pick one of the devices above to see how I have used it.</span></div>
     </section>
-
-    <section id="connect" class="sec">
-      <div class="connect">
-        <div class="l">
-          <h2>Open to applied AI and spatial computing roles</h2>
-          <div class="cta"><a class="pill solid" href={`mailto:${site.email}`}>Email me</a></div>
-        </div>
-        <div class="r">
-          <h3>Connect</h3>
-          <a href={`mailto:${site.email}`} style="font-size:17px">{site.email}</a>
-          <div class="social">
-            <a href={site.links.linkedin}><Icon name="linkedin" size={18} />LinkedIn</a>
-            <a href={site.links.scholar}><Icon name="scholar" size={18} />Google Scholar</a>
-            <a href={site.links.github}><Icon name="github" size={18} />GitHub</a>
-            <a href={site.links.youtube}><Icon name="youtube" size={18} />YouTube demos</a>
-          </div>
-        </div>
-      </div>
-    </section>
   </main>
-  <footer class="foot">© 2026 Aditya Raikwar</footer>
+
+  <section id="connect" class="contact">
+    <h2 data-reveal>Open to applied AI and spatial computing roles.</h2>
+    <a class="email" href={`mailto:${site.email}`} data-reveal><span>{site.email.split('@')[0]}@</span><span>{site.email.split('@')[1]}</span></a>
+    <ul class="social" aria-label="Elsewhere">
+      <li><a href={site.links.linkedin}>LinkedIn</a></li>
+      <li><a href={site.links.scholar}>Google Scholar</a></li>
+      <li><a href={site.links.github}>GitHub</a></li>
+      <li><a href={site.links.youtube}>YouTube demos</a></li>
+    </ul>
+  </section>
+
+  <footer class="foot">
+    <div class="foot-cols">
+      <nav aria-label="Sections"><p>Sections</p>{sections.map(([h, l]) => <a href={h}>{l}</a>)}</nav>
+      <nav aria-label="Views"><p>Hiring for</p>{tracks.map((k) => <a href={site.tracks[k].path}>{site.tracks[k].label}</a>)}</nav>
+      <p class="legal">© 2026 Aditya Raikwar</p>
+    </div>
+    <p class="wordmark" aria-hidden="true">{site.name}</p>
+  </footer>
 
   <script type="application/json" id="site-data" set:html={JSON.stringify(clientData)} />
   <script>
